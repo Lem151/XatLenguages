@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendButton = document.getElementById('send-button');
   const chatMessages = document.getElementById('chat-messages');
 
+  var email = sessionStorage.getItem('email');
+  var session = sessionStorage.getItem('session');
+
   sendButton.addEventListener('click', sendMessage);
+  
 
   function sendMessage() {
     const message = messageInput.value;
@@ -35,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // Mostrar el mensaje enviado en el chat
           recibirMensajes(email, session); // Llamada para recibir mensajes después de enviar uno
           displayMessage(email, message);
+          
+
   
         },
         error: function(xhr, status, error) {
@@ -54,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chatMessages.appendChild(messageElement);
   }
+
+
   //Recive mensajes de otros pero no los muestra si no son la persona con la que chateas, aun asi los borra de la base de datos por un fallo del backend 
   function recibirMensajes(mail, session) {
     // Realizar la solicitud GET a través de AJAX
@@ -84,5 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
   }
+  setInterval(recibirMensajes(email, session), 2000);
 });
 
