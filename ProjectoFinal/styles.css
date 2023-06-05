@@ -50,10 +50,6 @@ button:hover {
 #registerButton:hover {
     background-color: #aaa;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
 
 .container {
     max-width: 600px;
@@ -87,4 +83,24 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#options a {
+    display: block;
+    padding: 10px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    background-color: #ccc;
+}
+
+#options a:hover {
+    background-color: #aaa;
 }
